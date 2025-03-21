@@ -1,0 +1,79 @@
+<textarea readonly rows="1000" cols="250">
+/*********************************How to custom load a function********************************************
+// define a MACRO for building a function like for 
+// HRESULT getWindowName(DWORD x, HWND y)
+#define GET_WINDOW_NAME(name) HRESULT name(DWORD x, HWND y)
+
+// Now create a pointer so that we can use the function
+typedef GET_WINDOW_NAME(get_window_name);
+
+// Create a stub function
+GET_WINDOW_NAME(getWindowNameStub)
+{
+	return 0;
+}
+
+// create a global variable so we can access it 
+global get_window_name *getWindowName_ = getWindowNameStub;
+
+// use the original name
+#define getWindowName getWindowName_
+
+// Load the library
+HMODULE windowHandlingLibrary = LoadLibraryA("windowHandling_v2.dll");
+if(windowHandlingLibrary)
+{
+	// if windowHandling_v2 is not available then use v1.
+	HMODULE windowHandlingLibrary = LoadLibraryA("windowHandling_v1.dll");
+}
+if(windowHandlingLibrary)
+{
+	getWindowName = (*get_window_name)GetProcAddress(windowHandlingLibrary, 
+			"getWindowName");
+	if(!getWindowName) getWindowName = getWindowNameStub;
+}
+/*********************************How to custom load a function********************************************
+
+/*********************************Day 007********************************************
+in c++ bool is defined to have either 0 or 1. 
+-> Forcing value bool to 0 or 1 performance warning. 
+-> C++ checks if the value is 0 or 1 if not then it converts it to 1. 
+-> When just want to check if the value to non zero then use b32
+ie. #define s32 b32;
+
+Dont crank the optimization ratchet until you have got everything working. Because you may 
+end up deleting the code. 
+
+// Direct sound
+
+Initialize DSound
+{
+	// load the library
+	custom load library loading 
+	// NOTE: DirectSound create will fill the pointer of DirectSound Object.
+	if(directsoundcreate() is availble and it was succesful)
+	{
+		//Get a direct sound "object" - cooperative mode
+		DirectSound->SetCooperativeLevel();
+			// if failed then log it. 
+
+		//"create" a primary buffer
+		createSoundBuffer();
+			// if successful -> PrimaryBuffer->SetFormat();
+		"create" a secondary buffer
+		-> fill the bufferDesc
+		-> create the secondaryBuffer
+	}
+
+	Start playing the buffer
+	
+}
+
+/*********************************Day 008********************************************
+
+
+
+
+
+
+</textarea>
