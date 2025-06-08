@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
 ::-moz-selection { /* Code for Firefox */
     background :#FF5DC2; /* lighter on hover */
 }
@@ -13,7 +24,7 @@ body {
     font-family: "Montserrat", sans-serif;
     background-color: #222;
     color: #ddd;
-    overflow-y: hidden
+    /* overflow-y: hidden */
 }
 
 .navbar-left {
@@ -99,10 +110,12 @@ body {
 
 .about
 {
+    top: 8%;
+    position: sticky;
     font-size:large;
     background-color: #555;
     padding: 1rem;
-    border: 1px solid #ffff;
+    border: 2px solid #FF5DC2; /* lighter on hover */
     margin-bottom: 0.5rem;
 }
 
