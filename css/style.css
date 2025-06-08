@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+::-moz-selection { /* Code for Firefox */
+    background :#FF5DC2; /* lighter on hover */
+}
+
+::selection {
+    background :#FF5DC2; /* lighter on hover */
+}
+
+body {
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #222;
+    color: #ddd;
+    overflow-y: hidden
+}
+
+.navbar-left {
+    font-size: 2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.icon {
+    text-decoration: none;
+    color: #fff
+    
+}
+.icon:hover
+{
+    text-decoration: none;
+    color:#FF5DC2; /* lighter on hover */
+}
+
+
+.navbar {
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid #FF5DC2; /* lighter on hover */
+}
+
+.card{
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.navbar-right a {
+    color: #ffff; /* bright cyan-blue */
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.navbar-right a:hover {
+    color:#FF5DC2; /* lighter on hover */
+}
+
+.main-columns {
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+
+.column {
+    flex: 1;
+}
+
+.center {
+    max-width: 800px;
+}
+
+
+.tabs {
+    margin-bottom: 1rem;
+}
+
+.tab {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    /* sharp corners */
+    border: 1px solid #fff;
+}
+
+.tab.active {
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.featured-project {
+    background-color: #333;
+    padding: 1rem;
+    /* sharp corners */
+    /* border: 1px solid #ffff; */
+    margin-bottom: 0.5rem;
+}
+
+.featured-project:hover {
+    background-color: #444;
+    cursor: pointer;
+    border: 1px solid #FF5DC2; /* lighter on hover */
+}
+
+.featured-project img {
+    width: 100%;
+    margin-top: 0.5rem;
+    /* sharp corners */
+    border: 1px solid #FF5DC2; /* lighter on hover */
+}
+
+/**************************************************************************************************/

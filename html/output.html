@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+  
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* Hide scrollbar for IE, Edge and Firefox */
+    body {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    ::-moz-selection { /* Code for Firefox */
+        background :#832d62;
+    }
+
+    ::selection {
+        background :#832d62;
+    }
+
+
+    .icon {
+        text-decoration: none;
+        color: #fff
+    }
+
+    .icon:hover {
+        text-decoration: none;
+        color:#FF5DC2;
+    }
+
+    .navbar-left {
+        font-size: 2rem;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .navbar-right a {
+        color: #ffff;
+        text-decoration: none;
+        margin-left: 1rem;
+    }
+
+    .navbar-right a:hover {
+        color:#FF5DC2;
+    }
+
+    .navbar {
+        background-color: #333;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        position: sticky;
+        top: 0;
+        border-bottom: 1px solid #FF5DC2;
+    }
+
+    body {
+        margin: 0;
+        background-color: #222;
+        color: #fff;
+        font-family: "Montserrat", sans-serif;
+        font-size: 16px;
+    }
+
+    .container {
+        display: flex;
+        width: 100%;
+    }
+
+    .remaining {
+        width: 15%;
+    }
+
+    .blog {
+        margin-top: 1rem;
+        width: 70%;
+        background-color: #333;
+        text-align: justify;
+        line-height: auto;
+        padding: 0px 90px 0px 90px;
+    }
+
+    .blog img {
+        display: block;
+        margin: auto;
+        width: fit-content;
+        border: 1px solid #FF5DC2;
+    }
+
+    .blog p {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .blog pre {
+        background-color: #444;
+        border: 1px solid #Fff;
+        padding: 1rem;
+    }
+    
+    .blog pre:hover {
+        background-color: #222;
+        border: 1px solid #FF5DC2;
+        color: #ffb0e1;
+    }
+
+    /* Additional styles for markdown elements */
+    a {
+        color: #FF5DC2;
+        text-decoration: none;
+    }
+
+    blockquote {
+        border-left: 3px solid #FF5DC2;
+        padding-left: 1em;
+        margin-left: 0;
+        color: #ccc;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 1em 0;
+    }
+
+    th, td {
+        border: 1px solid #555;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #444;
+    }
+
+    tr:nth-child(even) {
+        background-color: #3a3a3a;
+    }
+  </style>
+</head>
+<body>
+  <!-- Optional navbar - you can customize this -->
+
+  <header class="navbar">
+    <div class="navbar-left"> 
+        <a class="icon" href="index.html">YASH GOSAVI</a>
+    </div>
+    <div class="navbar-right">
+      <a href="projects.html">Projects</a>
+      <a href="https://discord.com/users/1294295669107982407">Discord</a>
+      <a href="mailto:yashcgosavi@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/yashcgosavi/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/byk4" target="_blank">GitHub</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="remaining"></div>
+    <div class="blog">
+      <h1>Sample Markdown File</h1>
+<p>This document demonstrates all major Markdown features.</p>
+<h2>Text Formatting</h2>
+<ul>
+<li><strong>Bold text</strong></li>
+<li><em>Italic text</em></li>
+<li><del>Strikethrough</del></li>
+<li><code>inline code</code></li>
+<li><em><strong>Bold and italic</strong></em></li>
+</ul>
+<h2>Headers</h2>
+<h1>H1</h1>
+<h2>H2</h2>
+<h3>H3</h3>
+<h4>H4</h4>
+<h5>H5</h5>
+<h6>H6</h6>
+<h2>Lists</h2>
+<h3>Ordered List</h3>
+<ol>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+</ol>
+<h3>Unordered List</h3>
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+<li>Item 3</li>
+</ul>
+<h3>Nested Lists</h3>
+<ol>
+<li>First item<ul>
+<li>Subitem A</li>
+<li>Subitem B</li>
+</ul>
+</li>
+<li>Second item<ul>
+<li>Subitem C</li>
+</ul>
+</li>
+</ol>
+<h2>Links and Images</h2>
+<p><a href="https://www.google.com">Google</a></p>
+<p><img src="https://markdownlogo.com/src/logo/markdown-logo.png" alt="Markdown Logo"></p>
+<h2>Code Blocks</h2>
+<pre><code class="language-javascript">function helloWorld() {
+  console.log(&quot;Hello, world!&quot;);
+}
+</code></pre>
+<pre><code class="language-python">def hello_world():
+    print(&quot;Hello, world!&quot;)
+</code></pre>
+<h2>Tables</h2>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Header</td>
+<td>Title</td>
+</tr>
+<tr>
+<td>Paragraph</td>
+<td>Text</td>
+</tr>
+</tbody></table>
+<h2>Blockquotes</h2>
+<blockquote>
+<p>This is a blockquote.</p>
+<blockquote>
+<p>Nested blockquote.</p>
+</blockquote>
+</blockquote>
+<h2>Horizontal Rule</h2>
+<hr>
+<h2>HTML</h2>
+<p>You can use raw HTML too:</p>
+<p style="color: red;">This is red text using HTML</p>
+
+<h2>Task Lists</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Write the markdown</li>
+<li><input disabled="" type="checkbox"> Convert to HTML</li>
+<li><input disabled="" type="checkbox"> Deploy</li>
+</ul>
+
+    </div>
+    <div class="remaining"></div>
+  </div>
+</body>
+</html>
