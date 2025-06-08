@@ -12,11 +12,11 @@
 
 
 ::-moz-selection { /* Code for Firefox */
-    background :#FF5DC2; /* lighter on hover */
+    background :#832d62;
 }
 
 ::selection {
-    background :#FF5DC2; /* lighter on hover */
+    background :#832d62;
 }
 
 body {
@@ -111,11 +111,11 @@ body {
 .about
 {
     top: 8%;
+    text-align: justify;
     position: sticky;
     font-size:large;
-    background-color: #555;
+    background-color: #333;
     padding: 1rem;
-    border: 2px solid #FF5DC2; /* lighter on hover */
     margin-bottom: 0.5rem;
 }
 

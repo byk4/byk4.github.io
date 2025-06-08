@@ -45,6 +45,7 @@ const htmlDocument = `<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <style>
+
   
     /* Hide scrollbar for Chrome, Safari and Opera */
     ::-webkit-scrollbar {
@@ -109,8 +110,14 @@ const htmlDocument = `<!DOCTYPE html>
         background-color: #222;
         color: #fff;
         font-family: "Montserrat", sans-serif;
-        font-size: 16px;
     }
+    
+    p {
+      font-size: large;
+      line-height: 1.8;
+    }
+
+
 
     .container {
         display: flex;
@@ -140,6 +147,11 @@ const htmlDocument = `<!DOCTYPE html>
     .blog p {
         padding-top: 1rem;
         padding-bottom: 1rem;
+    }
+
+    code
+    {
+      font-size: large ;
     }
 
     .blog pre {
