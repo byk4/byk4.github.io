@@ -192,7 +192,7 @@ const htmlDocument = `<!DOCTYPE html>
 
   <header class="navbar">
     <div class="navbar-left"> 
-        <a class="icon" href="../html/index.html">YASH GOSAVI</a>
+        <a class="icon" href="../index.html">YASH GOSAVI</a>
     </div>
     <div class="navbar-right">
       <a href="../html/projects.html">Projects</a>
