@@ -131,6 +131,7 @@ const htmlDocument = `<!DOCTYPE html>
 
     .blog {
         margin-top: 1rem;
+        margin-bottom: 1rem;
         width: 70%;
         background-color: #222;
         text-align: justify;
