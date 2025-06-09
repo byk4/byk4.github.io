@@ -117,7 +117,7 @@ const htmlDocument = `<!DOCTYPE html>
       font-size: large;
       line-height: 1.8;
     }
-
+    
 
 
     .container {
@@ -141,6 +141,9 @@ const htmlDocument = `<!DOCTYPE html>
     }
     .blog:hover{
       border: 1px solid #FF5DC2;
+      :is(h1, h2, h3, h4, h5, h6) {
+      color: #FF5DC2;
+      }
     }
 
     .blog img {
