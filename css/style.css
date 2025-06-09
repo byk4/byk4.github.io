@@ -53,6 +53,7 @@ body {
     position: sticky;
     top: 0;
     border-bottom: 1px solid #FF5DC2; /* lighter on hover */
+    z-index: 10000;
 }
 
 .card{
@@ -73,8 +74,9 @@ body {
 
 .main-columns {
     display: flex;
-    padding: 1rem;
-    gap: 1rem;
+    height: calc(100vh - 60px); /* adjust if navbar is bigger */
+    display: flex;
+    gap: 0;
 }
 
 
@@ -110,13 +112,11 @@ body {
 
 .about
 {
-    top: 8%;
     text-align: justify;
     position: sticky;
     font-size:large;
     background-color: #333;
     padding: 1rem;
-    margin-bottom: 0.5rem;
 }
 
 .featured-project {
@@ -141,3 +141,19 @@ body {
 }
 
 /**************************************************************************************************/
+.column {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    border-left: 1px solid #FF5DC2;
+    /* border-right: 2px solid #FF5DC2; */
+    box-sizing: border-box;
+}
+
+.column:first-child {
+    border-left: none;
+}
+
+.column:last-child {
+    border-right: none;
+}

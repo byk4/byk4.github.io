@@ -207,7 +207,6 @@ const htmlDocument = `<!DOCTYPE html>
         <a class="icon" href="../index.html">YASH GOSAVI</a>
     </div>
     <div class="navbar-right">
-      <a href="../html/projects.html">Projects</a>
       <a href="https://discord.com/users/1294295669107982407">Discord</a>
       <a href="mailto:yashcgosavi@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/yashcgosavi/" target="_blank">LinkedIn</a>
