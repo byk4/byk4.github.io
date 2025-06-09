@@ -22,7 +22,7 @@
 body {
     margin: 0;
     font-family: "Montserrat", sans-serif;
-    background-color: #222;
+    background-color: #111;
     color: #ddd;
     /* overflow-y: hidden */
 }
@@ -45,7 +45,7 @@ body {
 
 
 .navbar {
-    background-color: #333;
+    background-color: #222;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -84,19 +84,15 @@ body {
     flex: 1;
 }
 
-.center {
-    max-width: 800px;
-}
-
 
 .tabs {
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
 }
 
 .tab {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: #333;
+    background-color: #222;
     color: #fff;
     margin-right: 0.5rem;
     cursor: pointer;
@@ -105,7 +101,7 @@ body {
 }
 
 .tab.active {
-    background-color: #555;
+    background-color: #333;
     color: #fff;
     border: 1px solid #fff;
 }
@@ -115,23 +111,23 @@ body {
     text-align: justify;
     position: sticky;
     font-size:large;
-    background-color: #333;
+    background-color: #222;
     padding: 1rem;
 }
 
 .featured-project {
-    background-color: #333;
+    background-color: #222;
     padding: 1rem;
     /* sharp corners */
     /* border: 1px solid #ffff; */
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .featured-project:hover {
-    background-color: #444;
+    background-color: #333;
     cursor: pointer;
-    border: 1px solid #FF5DC2; /* lighter on hover */
-}
+    border: 1px solid #FF5DC2; /* lighter on hover
+ */}
 
 .featured-project img {
     width: 100%;
@@ -140,18 +136,65 @@ body {
     border: 1px solid #FF5DC2; /* lighter on hover */
 }
 
+.title
+{
+    position: sticky;
+    font-size:xx-large;
+    background-color: #222;
+    border-bottom: 1px solid #FF5DC2;
+    padding: 1rem;
+    gap:0;
+    margin:0;
+    color:#fff; /* lighter on hover */
+    top:0;
+
+
+}
+
 /**************************************************************************************************/
+
+.aboutMe
+{
+    font-size:xx-large; 
+    color:#fff;
+}
+
 .column {
     flex: 1;
     padding: 1rem;
     overflow-y: auto;
-    border-left: 1px solid #FF5DC2;
-    /* border-right: 2px solid #FF5DC2; */
+    /* border-left: 1px solid #FF5DC2; */
+    border-right: 1px solid #FF5DC2;
     box-sizing: border-box;
+}
+
+.column:hover
+{
+    .title
+    {
+        background-color: #333;
+        color:#FF5DC2; /* lighter on hover */
+    }
 }
 
 .column:first-child {
     border-left: none;
+}
+
+.navbar:hover
+{
+    background-color: #333;
+
+}
+
+.about:hover
+{
+    border: 1px solid #FF5DC2;
+    background-color: #333;
+    .aboutMe
+    {
+        color:#FF5DC2;
+    }
 }
 
 .column:last-child {

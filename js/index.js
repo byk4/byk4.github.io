@@ -95,7 +95,7 @@ const htmlDocument = `<!DOCTYPE html>
     }
 
     .navbar {
-        background-color: #333;
+        background-color: #222;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -107,7 +107,7 @@ const htmlDocument = `<!DOCTYPE html>
 
     body {
         margin: 0;
-        background-color: #222;
+        background-color: #111;
         color: #fff;
         font-family: "Montserrat", sans-serif;
     }
@@ -131,7 +131,7 @@ const htmlDocument = `<!DOCTYPE html>
     .blog {
         margin-top: 1rem;
         width: 70%;
-        background-color: #333;
+        background-color: #222;
         text-align: justify;
         line-height: auto;
         padding: 0px 90px 0px 90px;
@@ -155,13 +155,13 @@ const htmlDocument = `<!DOCTYPE html>
     }
 
     .blog pre {
-        background-color: #444;
+        background-color: #333;
         border: 1px solid #Fff;
         padding: 1rem;
     }
     
     .blog pre:hover {
-        background-color: #222;
+        background-color: #111;
         border: 1px solid #FF5DC2;
         color: #ffb0e1;
     }
@@ -186,12 +186,12 @@ const htmlDocument = `<!DOCTYPE html>
     }
 
     th, td {
-        border: 1px solid #555;
+        border: 1px solid #444;
         padding: 8px;
     }
 
     th {
-        background-color: #444;
+        background-color: #333;
     }
 
     tr:nth-child(even) {
