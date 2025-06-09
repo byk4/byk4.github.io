@@ -139,10 +139,12 @@ const htmlDocument = `<!DOCTYPE html>
         padding: 0px 90px 0px 90px;
       border: 1px solid #fff;
     }
+
+      :is(h1, h2, h3, h4, h5, h6):hover {
+      color: #FF5DC2;
+
     .blog:hover{
       border: 1px solid #FF5DC2;
-      :is(h1, h2, h3, h4, h5, h6) {
-      color: #FF5DC2;
       }
     }
 
