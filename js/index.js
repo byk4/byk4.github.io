@@ -136,6 +136,7 @@ const htmlDocument = `<!DOCTYPE html>
         text-align: justify;
         line-height: auto;
         padding: 0px 90px 0px 90px;
+        border: 1px solid #FF5DC2
     }
 
     .blog img {
