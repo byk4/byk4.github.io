@@ -61,11 +61,11 @@ const htmlDocument = `<!DOCTYPE html>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
     ::-moz-selection { /* Code for Firefox */
-        background :#832d62;
+        background :#832d00;
     }
 
     ::selection {
-        background :#832d62;
+        background :#832d00;
     }
 
 
