@@ -94,6 +94,7 @@ const htmlDocument = `<!DOCTYPE html>
         color:#FF5DC2;
     }
 
+    .navbar:hover { background-color: #333;}
     .navbar {
         background-color: #222;
         display: flex;
