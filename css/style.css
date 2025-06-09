@@ -170,10 +170,19 @@ body {
 
 .column:hover
 {
-    .title
-    {
+    background-color: #222;
+    .title {
         background-color: #333;
         color:#FF5DC2; /* lighter on hover */
+    };
+    .about
+    {
+        background-color: #333;
+    }
+
+    .featured-project
+    {
+        background-color: #333;
     }
 }
 
