@@ -164,13 +164,13 @@ const htmlDocument = `<!DOCTYPE html>
     {
       font-size: large ;
       background-color: #333;
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
     .blog pre {
         background-color: #333;
         border: 1px solid #Fff;
-        padding: 0.5rem;
+        padding: 1rem;
     }
     
     .blog pre:hover {
