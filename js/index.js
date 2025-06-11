@@ -162,7 +162,7 @@ const htmlDocument = `<!DOCTYPE html>
 
     code
     {
-      font-size: larger ;
+      font-size: large;
       background-color: #333;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
