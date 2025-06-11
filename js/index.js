@@ -178,7 +178,8 @@ const htmlDocument = `<!DOCTYPE html>
     .blog pre {
         background-color: #333;
         border: 1px solid #Fff;
-        padding: 2rem;
+        padding: 1rem;
+        margin: 1rem;
     }
     
     .blog pre:hover {
