@@ -169,6 +169,7 @@ const htmlDocument = `<!DOCTYPE html>
     code:hover
     {
       background-color: #111;
+      color: #ffb0e1;
     }
 
     .blog pre {
