@@ -206,11 +206,41 @@
 <p><em>This are my notes on Casey&#39;s Lecture on Instructions Per Cycle</em></p>
 <p>June 10, 2025</p>
 <p><img src="../assets/perf3.jpg" alt="Performance Aware Programming"></p>
-<p>In the prevous lecuture we learned about waste and how getting rid of it can improve our performance. Modern CPUs can do simple instructions in very diffrent ways. Not knowing about it can result in major slowdowns. In prevous we did addition of elements of arrays in a poor manner. Because we wanted to focus on waste. </p>
-<p>IPC and ILP mean almost same thing. IPC means number of instructions CPU can perform in single cycle. ILP is number of instructions that can be parallelized by the CPU.</p>
+<p>Waste are the unnecessary instructions which is the largest multiplier. But even after removing waste, there are necessary instructions. This variablity exists in how effiently CPUs execute them.</p>
+<h2>IPC and ILP</h2>
+<p>IPC means average instructions executed per CPU cycle. ILP tells the CPU&#39;s ability to run mutliple instructions at the same time. Bot measure how effectively the CPU uses parallel execution units. </p>
+<p>Lets take a look at the below code:</p>
 <pre><code>for i = 0 ... N
 {
     sum += input[i]
+}
+</code></pre>
+<p>On testing it we get 0.8 adds/per cycle. CPU should atleast give us 1 add/per cycle. Where are we losing the performance? In a single iteration we have to do Load (<code>input[i]</code>), Add(<code>Sum += </code>), Increment(<code>i++</code>) and Compare(<code>i &lt; count</code>) operation. </p>
+<h2>Loop Unrolling</h2>
+<p>Reduce the loop overhead (increment/compare) per useful operation</p>
+<p>SingleScalar</p>
+<pre><code class="language-c">int Sum = 0;
+for(int i = 0; i &lt; n; ++i)
+{
+    Sum += input[i];
+}
+</code></pre>
+<p>Unroll2Salar<br>Here we processes 2 elements per iterations (half the loop overhead). Still 1 serial dependency chain (add adds depend on Sum). We achive ~1 add/cycle</p>
+<pre><code class="language-c">int Sum = 0;
+for(int i = 0; i &lt; n; i+=2)
+{
+    Sum += input[i];
+    Sum += input[i+1];
+}
+</code></pre>
+<p>Unroll4Salar<br>We achive ~1 add/cycle</p>
+<pre><code class="language-c">int Sum = 0;
+for(int i = 0; i &lt; n; i+=4)
+{
+    Sum += input[i];
+    Sum += input[i+1];
+    Sum += input[i+2];
+    Sum += input[i+4];
 }
 </code></pre>
 
