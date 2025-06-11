@@ -26,7 +26,7 @@ So now the question is :
 It's very simple program just add A and B. And let's compare it with C program. 
 
 ```c
-   int __declspec(noinline) add(int A, int B)
+  int __declspec(noinline) add(int A, int B)
    {
       return(A+B);
    } 
