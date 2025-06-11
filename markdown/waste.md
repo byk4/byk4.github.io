@@ -26,15 +26,15 @@ So now the question is :
 It's very simple program just add A and B. And let's compare it with C program. 
 
 ```c
-int __declspec(noinline) add(int A, int B)
-{
-   return(A+B);
-} 
+   int __declspec(noinline) add(int A, int B)
+   {
+      return(A+B);
+   } 
 
-#pragma optimize("", off)
-int main(int ArgCount, char Args)
-{
-   return add(1234, 5678);
-}
+   #pragma optimize("", off)
+   int main(int ArgCount, char Args)
+   {
+      return add(1234, 5678);
+   }
 ```
 This is because we don't want the C compiler to aggressivly optimize the code remove the addition instruction. All we told the compiler is: don't inline and don't optimize. So lets take a look at generated assembly.
