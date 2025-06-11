@@ -163,6 +163,7 @@ const htmlDocument = `<!DOCTYPE html>
     code
     {
       font-size: large ;
+      background-color: #333;
     }
 
     .blog pre {
