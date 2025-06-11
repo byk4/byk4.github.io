@@ -181,6 +181,10 @@ const htmlDocument = `<!DOCTYPE html>
         background-color: #111;
         border: 1px solid #FF5DC2;
         color: #ffb0e1;
+        code
+        {
+          background-color: #111;
+        }
     }
 
     /* Additional styles for markdown elements */
