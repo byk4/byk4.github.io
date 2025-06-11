@@ -163,13 +163,12 @@ const htmlDocument = `<!DOCTYPE html>
     code
     {
       font-size: large;
-      color: #000;
-      background-color: #ffb0e1;
+      background-color: #333;
     }
 
     code:hover
     {
-      background-color: #555;
+      background-color: #111;
       color: #ffb0e1;
     }
 
