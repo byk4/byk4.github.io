@@ -164,8 +164,8 @@ const htmlDocument = `<!DOCTYPE html>
     {
       font-size: larger ;
       background-color: #333;
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
 
     code:hover
