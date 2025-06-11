@@ -164,6 +164,7 @@ const htmlDocument = `<!DOCTYPE html>
     {
       font-size: large ;
       background-color: #333;
+        padding: 1rem;
     }
 
     .blog pre {
