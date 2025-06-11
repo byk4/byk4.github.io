@@ -199,3 +199,33 @@ body {
 .column:last-child {
     border-right: none;
 }
+
+
+.mobile-warning {
+  display: none;
+  background-color: #222;
+  color: #ff5dc2;
+  padding: 1rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+
+.mobile-warning a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #ff5dc2;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .mobile-warning {
+    display: block;
+  }
+
+  /* Optionally hide main content on mobile */
+  header,
+  main {
+    display: none;
+  }
+}
