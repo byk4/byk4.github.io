@@ -168,7 +168,7 @@ const htmlDocument = `<!DOCTYPE html>
       padding-right: 0.5rem;
     }
 
-    code:hover
+    pre code:hover
     {
       background-color: #111;
       color: #ffb0e1;
