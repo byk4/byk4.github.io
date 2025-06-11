@@ -1,4 +1,4 @@
-# Waste 
+# Waste
 
 *This are my notes on Casey's Lecture on Waste*
 
@@ -6,44 +6,36 @@ June 10, 2025
 
 ![Performance Aware Programming](../assets/waste.jpeg)
 
-Traditional Optimization means tuning a program to get the best performance on specific hardware. It often requires deep hardware knowledge and creative tricks. True optimization still happens, but many programmers avoid it because it's complex and time-consuming. However, today's average software is not just slow - it's often 1000x to 10000x slower than it should be, due to common modern programming practices and tools. The problem isnt just we nned heroic optimizations - it's just developers lack general performance awareness. Peformance aware programmming is about understanding how performance works and making smart, reasonable decisions to avoid gross inefficiency. You wont need deep hardware expertise - just basic understanding and good habits. This pays off in better UX, lower server costs and more.
+There are only two things that we can do to improve the performance of a program:
 
-## Two Core Ideas About Performance
+1. Reduce the total number instrucctions for CPU to execute
 
-When you thing about performance, start with two simple levers:
+2. Make instructions move more effiently through the CPU. 
 
-1. Reduce the number of instructions the CPU must execute.
+Thats it, reduce the number or make it fast.
 
-   * This isn't just about algorithm complexity. Various choices can increase or decrease instruction count.
+The biggest multiplier that makes the code slow is: **WASTE**. It makes program 1k to 10k times slower. Waste means literal waste. Those are the instructions that we dont want but CPU is executing and wasting it's resources and time. In modern times it's more common.
 
-2. Increase the speed at which instructions flow through the CPU
+The job of CPU is to execute instructions. CPUs take very simple instructions like ADD. It takes two registers or memory addresses as input. It adds those number and overwrites the first memory with the result. So ` A = A + B ` or ` A += B `
 
-   * CPUs today are complex. Some instructions finish in 1 clock cycle other take hundreds.
+In x86 there are other ways too like LEA. But it's slightly diffrent. On form takes two sources and a destination like ` C = A + B `
 
-   * CPU clock reate dosent guarantee uniform instruction speed.
+So now the question is :
+> How many wasted instructions are there in a simple A+B python program?
 
-   * The type of instruction, memory patterns, and instruction order all affect actual performance.
+It's very simple program just add A and B. And let's compare it with C program. 
 
-All performance aware thinking boils down to these two goals
+```c
 
-## Why Software became slow
+int __declspec(noinline) add(int A, int B)
+{
+   return(A+B);
+} 
 
-In earlier days, programmers were aware of the CPU instructions their programs generated. That awareness kepth them grounded. But as CPUs became more complex and programming languages more abstract, developers lost connection. Many now think mostly in terms of source language ( JS, Cpp, Py ) not the CPU. Performance aware programming means getting that awareness back. No matter your language consider:
-
-* What CPU instructions will this code produce?
-
-* How will those instructions performe?
-
-Even in high level languages, you can make choices that help (or hinder) performace.
-
-## Why it matters
-
-Today, many developers write code, see it run slowly and have no idea why. They can't tell if the slowness is unavoidable or due to ineffient code.
-
-With performance awareness, you can:
-
-1. Predict roughly how fast something should run on a CPU
-
-2. Recognize when you've written something unnecessarily slow code
-
-3. Make better coding choices across any language
+#pragma optimize("", off)
+int main(int ArgCount, char Args)
+{
+   return add(1234, 5678);
+}
+```
+This is because we don't want the C compiler to aggressivly optimize the code remove the addition instruction. All we told the compiler is: don't inline and don't optimize. So lets take a look at generated assembly.

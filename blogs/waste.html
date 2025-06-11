@@ -194,47 +194,35 @@
 <p><em>This are my notes on Casey&#39;s Lecture on Waste</em></p>
 <p>June 10, 2025</p>
 <p><img src="../assets/waste.jpeg" alt="Performance Aware Programming"></p>
-<p>Traditional Optimization means tuning a program to get the best performance on specific hardware. It often requires deep hardware knowledge and creative tricks. True optimization still happens, but many programmers avoid it because it&#39;s complex and time-consuming. However, today&#39;s average software is not just slow - it&#39;s often 1000x to 10000x slower than it should be, due to common modern programming practices and tools. The problem isnt just we nned heroic optimizations - it&#39;s just developers lack general performance awareness. Peformance aware programmming is about understanding how performance works and making smart, reasonable decisions to avoid gross inefficiency. You wont need deep hardware expertise - just basic understanding and good habits. This pays off in better UX, lower server costs and more.</p>
-<h2>Two Core Ideas About Performance</h2>
-<p>When you thing about performance, start with two simple levers:</p>
+<p>There are only two things that we can do to improve the performance of a program:</p>
 <ol>
-<li><p>Reduce the number of instructions the CPU must execute.</p>
-<ul>
-<li>This isn&#39;t just about algorithm complexity. Various choices can increase or decrease instruction count.</li>
-</ul>
+<li><p>Reduce the total number instrucctions for CPU to execute</p>
 </li>
-<li><p>Increase the speed at which instructions flow through the CPU</p>
-<ul>
-<li><p>CPUs today are complex. Some instructions finish in 1 clock cycle other take hundreds.</p>
-</li>
-<li><p>CPU clock reate dosent guarantee uniform instruction speed.</p>
-</li>
-<li><p>The type of instruction, memory patterns, and instruction order all affect actual performance.</p>
-</li>
-</ul>
+<li><p>Make instructions move more effiently through the CPU.</p>
 </li>
 </ol>
-<p>All performance aware thinking boils down to these two goals</p>
-<h2>Why Software became slow</h2>
-<p>In earlier days, programmers were aware of the CPU instructions their programs generated. That awareness kepth them grounded. But as CPUs became more complex and programming languages more abstract, developers lost connection. Many now think mostly in terms of source language ( JS, Cpp, Py ) not the CPU. Performance aware programming means getting that awareness back. No matter your language consider:</p>
-<ul>
-<li><p>What CPU instructions will this code produce?</p>
-</li>
-<li><p>How will those instructions performe?</p>
-</li>
-</ul>
-<p>Even in high level languages, you can make choices that help (or hinder) performace.</p>
-<h2>Why it matters</h2>
-<p>Today, many developers write code, see it run slowly and have no idea why. They can&#39;t tell if the slowness is unavoidable or due to ineffient code.</p>
-<p>With performance awareness, you can:</p>
-<ol>
-<li><p>Predict roughly how fast something should run on a CPU</p>
-</li>
-<li><p>Recognize when you&#39;ve written something unnecessarily slow code</p>
-</li>
-<li><p>Make better coding choices across any language</p>
-</li>
-</ol>
+<p>Thats it, reduce the number or make it fast.</p>
+<p>The biggest multiplier that makes the code slow is: <strong>WASTE</strong>. It makes program 1k to 10k times slower. Waste means literal waste. Those are the instructions that we dont want but CPU is executing and wasting it&#39;s resources and time. In modern times it&#39;s more common.</p>
+<p>The job of CPU is to execute instructions. CPUs take very simple instructions like ADD. It takes two registers or memory addresses as input. It adds those number and overwrites the first memory with the result. So <code>A = A + B</code> or <code>A += B</code></p>
+<p>In x86 there are other ways too like LEA. But it&#39;s slightly diffrent. On form takes two sources and a destination like <code>C = A + B</code></p>
+<p>So now the question is :</p>
+<blockquote>
+<p>How many wasted instructions are there in a simple A+B python program?</p>
+</blockquote>
+<p>It&#39;s very simple program just add A and B. And let&#39;s compare it with C program. </p>
+<pre><code class="language-c">
+int __declspec(noinline) add(int A, int B)
+{
+   return(A+B);
+} 
+
+#pragma optimize(&quot;&quot;, off)
+int main(int ArgCount, char Args)
+{
+   return add(1234, 5678);
+}
+</code></pre>
+<p>This is because we don&#39;t want the C compiler to aggressivly optimize the code remove the addition instruction. All we told the compiler is: don&#39;t inline and don&#39;t optimize. So lets take a look at generated assembly.</p>
 
     </div>
     <div class="remaining"></div>
