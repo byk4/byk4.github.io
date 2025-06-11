@@ -151,7 +151,7 @@ const htmlDocument = `<!DOCTYPE html>
     .blog img {
         display: block;
         margin: auto;
-        width: fit-content;
+        width: 100%;
         border: 1px solid #FF5DC2;
     }
 
