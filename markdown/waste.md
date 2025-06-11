@@ -1,10 +1,10 @@
-# Performance Aware Programming
+# Waste 
 
-*This are my notes on Casey's course Performance Aware Programming*
+*This are my notes on Casey's Lecture on Waste*
 
 June 10, 2025
 
-![Performance Aware Programming](../assets/perf1.jpg)
+![Performance Aware Programming](../assets/waste.jpeg)
 
 Traditional Optimization means tuning a program to get the best performance on specific hardware. It often requires deep hardware knowledge and creative tricks. True optimization still happens, but many programmers avoid it because it's complex and time-consuming. However, today's average software is not just slow - it's often 1000x to 10000x slower than it should be, due to common modern programming practices and tools. The problem isnt just we nned heroic optimizations - it's just developers lack general performance awareness. Peformance aware programmming is about understanding how performance works and making smart, reasonable decisions to avoid gross inefficiency. You wont need deep hardware expertise - just basic understanding and good habits. This pays off in better UX, lower server costs and more.
 
