@@ -172,11 +172,12 @@ const htmlDocument = `<!DOCTYPE html>
     {
       background-color: #111;
       color: #ffb0e1;
+      border: #FF5DC2;
     }
 
     .blog code:hover
     {
-      border: 1px solid #Fff;
+      border: 1px solid #FF5DC2;
     }
 
 
