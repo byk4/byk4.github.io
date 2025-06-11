@@ -173,6 +173,7 @@ const htmlDocument = `<!DOCTYPE html>
     }
 
     .blog pre {
+        font-size: larger ;
         background-color: #333;
         border: 1px solid #Fff;
         padding: 1rem;
