@@ -168,10 +168,11 @@ const htmlDocument = `<!DOCTYPE html>
       padding-right: 0.5rem;
     }
 
-    code:hover
+    :not(pre):code:hover
     {
       background-color: #111;
       color: #ffb0e1;
+      border: 1px solid #FF5DC2;
     }
 
 
