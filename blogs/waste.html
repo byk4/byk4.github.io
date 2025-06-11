@@ -125,7 +125,8 @@
     code
     {
       font-size: large;
-      background-color: #333;
+      color: #000;
+      background-color: #ffb0e1;
     }
 
     code:hover
@@ -222,16 +223,16 @@
 <p>How many wasted instructions are there in a simple A+B python program?</p>
 </blockquote>
 <p>It&#39;s very simple program just add A and B. And let&#39;s compare it with C program. </p>
-<pre><code class="language-c">  int __declspec(noinline) add(int A, int B)
-   {
-      return(A+B);
-   } 
+<pre><code class="language-c">int __declspec(noinline) add(int A, int B)
+{
+   return(A+B);
+} 
 
-   #pragma optimize(&quot;&quot;, off)
-   int main(int ArgCount, char Args)
-   {
-      return add(1234, 5678);
-   }
+#pragma optimize(&quot;&quot;, off)
+int main(int ArgCount, char Args)
+{
+   return add(1234, 5678);
+}
 </code></pre>
 <p>This is because we don&#39;t want the C compiler to aggressivly optimize the code remove the addition instruction. All we told the compiler is: don&#39;t inline and don&#39;t optimize. So lets take a look at generated assembly.</p>
 
