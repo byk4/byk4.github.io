@@ -167,7 +167,7 @@ const htmlDocument = `<!DOCTYPE html>
       padding: 0.5rem;
     }
 
-    :note(pre) code:hover
+    code:hover
     {
       background-color: #111;
       color: #ffb0e1;
@@ -176,6 +176,7 @@ const htmlDocument = `<!DOCTYPE html>
 
 
     .blog pre {
+      font-size: larger ;
         background-color: #333;
         border: 1px solid #Fff;
         padding: 1rem;
