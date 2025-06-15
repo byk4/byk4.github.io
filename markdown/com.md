@@ -1,5 +1,11 @@
 # IUnkown Interface Class
 
+** In this blog we are going to discuss COM and Smart COM Pointers **
+
+June 15, 2025
+
+![com](../assets/com.jpg)
+
 DirectX 11 API is managed by a series of COM components. These clases prefixed with I ultimately inherit from `IUnkown` interface class. `IUnknown` has three methods
 
 1. `AddRef()` The internal reference count is incremented by 1. This method should be called after each copy of such a pointer to ensure the count is correct.
