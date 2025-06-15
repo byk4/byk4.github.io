@@ -205,7 +205,9 @@
       <h1>DXErr</h1>
 <p><em>In this blog we are going to discuss dxerr lib and it&#39;s alternative</em></p>
 <p>June 15, 2025</p>
-<p><img src="../assets/dxerr.jpg" alt="com"></p>
+<p><img src="../assets/dxerr.jpg" alt="err"></p>
+<p>We will be following <strong>Introduction to Computer Graphics using DirectX11 by Frank luna</strong> book. In this book they have used <code>dxerr</code> lib for handling HREUSLT output from Direct3D functions. Its is a practicle tool for tracking down the couse of errors and handling them. The main feature being that it can translate the error code into a string message. In the past one could directly used <code>dxerr</code> but now Windows has decided to discontinue it. Below is an alternative that I will be using. </p>
+<p>In order to get the message from the HRESULT we will be using <code>FormatMessageA</code>. Below is the implemenatation of it. </p>
 <pre><code class="language-cpp">#include &lt;iostream&gt;
 #include &lt;windows.h&gt;
 #include &lt;string&gt;
@@ -257,6 +259,8 @@ int WinMain(
     return (0);
 }
 </code></pre>
+<p>The test results are as follows:</p>
+<p><img src="../assets/error.png" alt="err"></p>
 
     </div>
     <div class="remaining"></div>
