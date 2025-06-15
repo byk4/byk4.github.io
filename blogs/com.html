@@ -203,15 +203,53 @@
     <div class="remaining"></div>
     <div class="blog">
       <h1>IUnkown Interface Class</h1>
-<p>DirectX 11 API is managed by a series of COM components. These clases prefixed with I<br>ultimately inherit from <code>IUnkown</code> interface class. <code>IUnknown</code> has three methods</p>
+<p>DirectX 11 API is managed by a series of COM components. These clases prefixed with I ultimately inherit from <code>IUnkown</code> interface class. <code>IUnknown</code> has three methods</p>
 <ol>
-<li><p><code>AddRef()</code> The internal reference count is incremented by 1. This method should be<br>called after each copy of such a pointer to ensure the count is correct.</p>
+<li><p><code>AddRef()</code> The internal reference count is incremented by 1. This method should be called after each copy of such a pointer to ensure the count is correct.</p>
 </li>
-<li><p><code>QueryInterface()</code> It checks if the instance implements other interface. If so,<br>returns a pointer to the interface and increase the refrence count by 1.</p>
+<li><p><code>QueryInterface()</code> It checks if the instance implements other interface. If so, returns a pointer to the interface and increase the refrence count by 1.</p>
 </li>
-<li><p><code>Release()</code> The internal reference count is reduced by 1. Only when the internal<br>refrence count reaches 0 it is released.</p>
+<li><p><code>Release()</code> The internal reference count is reduced by 1. Only when the internal refrence count reaches 0 it is released.</p>
 </li>
 </ol>
+<p>In actual usage we rearely use the first method. The third method is the most commonly used. After each use of the instance we must use a macro like this following to release it.</p>
+<pre><code class="language-cpp">#define RELEASE(x) { if(x) { x-&gt;Release(); x = nullptr}};
+</code></pre>
+<p>And if one forgets to release an interface pointer, the memory leak may take a lot of time to debug</p>
+<h2>ComPtr smart pointer</h2>
+<p>In order to solve the above issue and get rid of complicaed manual release, smart pointerfs are used. They can help us manage the interface instances implemented by COM components without worrying too much about memory leaks. The size of smart pointer is consitent witht the size of the general pointer. Therefore no addition space is occupied. Using the smart pointer requires including <code>wrl/clinet.h</code> and the smart pointer class template <code>ComPtr</code> is located inside the namespace <code>Microsoft::Wrl</code></p>
+<p>First there are five more commonly used methods to understand.</p>
+<ol>
+<li><p><code>Get()</code> This method return<code>T*</code> and doesnt trigger refrence count to increase by 1. It&#39;s commonly used in function input of COM compnent interface.</p>
+</li>
+<li><p><code>GetAddressOf()</code>: Returns <code>T**</code>. Commonly used in COM component interfaces as output argument to a function.</p>
+</li>
+<li><p><code>Reset()</code> This method calls release method on the instance inside and set the pointer to <code>nullptr</code></p>
+</li>
+<li><p><code>ReleaseAndGetAddressOf()</code> This method is equivalent to calling <code>Reset()</code> first and then <code>GetAddressOf()</code> to get <code>T**</code>. Its often used in function output of the COM component interface and is suitable for situations where the instance may be constructed repeatedly.</p>
+</li>
+<li><p><code>As()</code> A template function that can be called instead <code>IUnkown::QueryInterface()</code> and needs to pass the address of a <code>ComPtr</code> instance.</p>
+</li>
+</ol>
+<p>There are some operator overloading but its not suggested to use it.  </p>
+<p>Below is an example usage of ComPtr</p>
+<pre><code class="language-cpp">struct app
+{
+    template&lt;class T&gt;
+    using ComPtr = Microsoft::WRL::ComPtr&lt;T&gt;
+    ComPtr&lt;ID3D11Device&gt; device;
+    ComPtr&lt;ID3D11DeviceContext&gt; deviceContext;
+    ComPtr&lt;IDXGISwapChain&gt; swapChain;
+    ComPtr&lt;ID3D11Texture2D&gt; depthStencilBuffer;
+    ComPtr&lt;ID3D11RenderTargetView&gt; renderTargetView;
+    ComPtr&lt;ID3D11DepthStencilView&gt; depthStencilView;
+    D3D11_VIEWPORT viewPort;
+
+    std::string mainWindowCaption;
+    int width;
+    int height;
+};
+</code></pre>
 
     </div>
     <div class="remaining"></div>
