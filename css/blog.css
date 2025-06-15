@@ -69,6 +69,11 @@ p {
     line-height: 1.8;
 }
 
+.list
+{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 
 
 .container {
@@ -80,18 +85,7 @@ p {
     width: 15%;
 }
 
-body {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    width: 70%;
-    background-color: #222;
-    text-align: justify;
-    line-height: auto;
-    padding: 0px 90px 0px 90px;
-    border: 1px solid #fff;
-}
-
-    :is(h1, h2, h3, h4, h5, h6):hover {
+:is(h1, h2, h3, h4, h5, h6):hover {
     color: #FF5DC2;
 }
 
