@@ -59,7 +59,7 @@ display: none;
 
 body {
     margin: 0;
-    background-color: #111;
+    background-color: #222;
     color: #fff;
     font-family: "Montserrat", sans-serif;
 }
@@ -85,7 +85,7 @@ p {
     width: 15%;
 }
 
-:is(h1, h2, h3, h4, h5, h6):hover {
+:is(h1, h2, h3, h4, h5, h6) {
     color: #FF5DC2;
 }
 
