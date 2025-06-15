@@ -1,6 +1,6 @@
 # IUnkown Interface Class
 
-** In this blog we are going to discuss COM and Smart COM Pointers **
+**In this blog we are going to discuss COM and Smart COM Pointers**
 
 June 15, 2025
 
