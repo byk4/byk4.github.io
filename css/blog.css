@@ -1,103 +1,173 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+::-webkit-scrollbar {
+display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
 ::-moz-selection { /* Code for Firefox */
-    background :#832d62; /* lighter on hover */
+    background :#ff5dc141;
 }
 
 ::selection {
-    background :#832d62; /* lighter on hover */
+    background :#ff5dc141;
 }
+
 
 .icon {
     text-decoration: none;
     color: #fff
 }
 
-.icon:hover
-{
+.icon:hover {
     text-decoration: none;
-    color:#FF5DC2; /* lighter on hover */
+    color:#FF5DC2;
 }
 
 .navbar-left {
-
     font-size: 2rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .navbar-right a {
-    color: #ffff; /* bright cyan-blue */
+    color: #ffff;
     text-decoration: none;
     margin-left: 1rem;
 }
 
 .navbar-right a:hover {
-    color:#FF5DC2; /* lighter on hover */
+    color:#FF5DC2;
 }
 
+.navbar:hover { background-color: #333;}
 .navbar {
-    background-color: #333;
+    background-color: #222;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1rem;
     position: sticky;
     top: 0;
-    border-bottom: 1px solid #FF5DC2; /* lighter on hover */
+    border-bottom: 1px solid #FF5DC2;
 }
 
-body
-{
+body {
     margin: 0;
-    background-color: #222;
+    background-color: #111;
     color: #fff;
     font-family: "Montserrat", sans-serif;
-    font-size: 17px;
-    overflow-y: hidden;
 }
+
+p {
+    font-size: large;
+    line-height: 1.8;
+}
+
+
 
 .container {
     display: flex;
     width: 100%;
 }
 
-.remaining{
+.remaining {
     width: 15%;
 }
 
-.blog{
+body {
     margin-top: 1rem;
-    /* padding: 0.5rem 1rem; */
+    margin-bottom: 1rem;
     width: 70%;
-    background-color: #333;
+    background-color: #222;
     text-align: justify;
     line-height: auto;
     padding: 0px 90px 0px 90px;
+    border: 1px solid #fff;
 }
+
+    :is(h1, h2, h3, h4, h5, h6):hover {
+    color: #FF5DC2;
+}
+
+.blog:hover{
+    border: 1px solid #FF5DC2;
+    }
 
 .blog img {
     display: block;
     margin: auto;
-    width: fit-content;
-    /* sharp corners */
-    border: 1px solid #FF5DC2; /* lighter on hover */
+    width: 100%;
+    border: 1px solid #FF5DC2;
 }
 
-.blog p
-{
+.blog p {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
-.blog pre
+code
 {
-    background-color: #444;
-    border: 1px solid #Fff; /* lighter on hover */
+    font-size: large;
+    background-color: #333;
 }
-.blog pre:hover
-{
-    background-color: #222;
-    border: 1px solid #FF5DC2; /* lighter on hover */
-    color: #ffb0e1; /* lighter on hover */
 
+code:hover
+{
+    background-color: #111;
+    color: #ffb0e1;
+}
+
+
+.blog pre {
+    background-color: #333;
+    border: 1px solid #Fff;
+    padding: 1rem;
+}
+
+.blog pre:hover {
+    background-color: #111;
+    border: 1px solid #FF5DC2;
+    color: #ffb0e1;
+    code
+    {
+        background-color: #111;
+    }
+}
+
+/* Additional styles for markdown elements */
+a {
+    color: #FF5DC2;
+    text-decoration: none;
+}
+
+blockquote {
+    border-left: 3px solid #FF5DC2;
+    padding-left: 1em;
+    margin-left: 0;
+    color: #ccc;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+th, td {
+    border: 1px solid #444;
+    padding: 8px;
+}
+
+th {
+    background-color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #3a3a3a;
 }
