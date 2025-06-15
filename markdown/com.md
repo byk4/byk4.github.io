@@ -1,10 +1,12 @@
-# IUnkown Interface Class
+# COM Pointers
 
 *In this blog we are going to discuss COM and Smart COM Pointers*
 
 June 15, 2025
 
 ![com](../assets/com.jpg)
+
+## IUnkown Interface Class
 
 DirectX 11 API is managed by a series of COM components. These clases prefixed with I ultimately inherit from `IUnkown` interface class. `IUnknown` has three methods
 
