@@ -61,16 +61,9 @@ body {
     text-decoration: none;
 }
 
-a {
-    color: #ffff; /* bright cyan-blue */
+a{
     text-decoration: none;
-    margin-left: 1rem;
 }
-
-a:hover {
-    color:#FF5DC2; /* lighter on hover */
-}
-
 
 .navbar-right a {
     color: #ffff; /* bright cyan-blue */
