@@ -108,7 +108,7 @@ for(UINT driverIndex = 0; driverIndex < numDriverTypes; driverIndex++)
 
     if(hr == E_INVALIDARGS)
     {
-        // d3d11.0 api does not recognzed the D3D_FEATURE_LEVEL_11_1 so we need to try feature levels 11.0 and below. 
+        // d3d11.0 api does not recognzed the D3D_FEATURE_LEVEL_11_1 so we need to try feature levels 11.0 and below.
         hr = D3D11CreateDevice(nullptr, driverTypes, nullptr, createDeviceFlags, &featureLevels[1], numFeatureLevels-1, D3D11_SDK_VERSION, device.GetAddressOf(), &featureLevel, immediateContext.GetAddressOf());
     }
 
