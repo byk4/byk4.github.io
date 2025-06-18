@@ -182,12 +182,13 @@
     tr:nth-child(even) {
         background-color: #3a3a3a;
     }
-            .blog pre,
-    .blog code {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      overflow-wrap: anywhere;
-    }
+    
+    .blog pre,
+.blog code {
+  white-space: pre;        /* don’t wrap lines */
+  overflow-x: auto;        /* allow horizontal scroll instead */
+}
+
   </style>
 </head>
 <body>
