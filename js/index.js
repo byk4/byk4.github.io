@@ -220,6 +220,12 @@ const htmlDocument = `<!DOCTYPE html>
     tr:nth-child(even) {
         background-color: #3a3a3a;
     }
+            .blog pre,
+    .blog code {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-wrap: anywhere;
+    }
   </style>
 </head>
 <body>
