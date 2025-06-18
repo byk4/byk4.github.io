@@ -202,7 +202,122 @@
   <div class="container">
     <div class="remaining"></div>
     <div class="blog">
-      
+      <h1>Direct3D Initialization</h1>
+<p><code>ID3D11Device</code> usaslly represents a display adapter (ie. graphics Card). Its main function is to create varous resources. The most commonly used resources are: resource class (<code>ID3D11Resource</code>, including Textures and Buffers), view class and shaders. In addition, Device can also be used to detect the system supported functions.</p>
+<p><code>ID3D11DeviceContext</code> can be regraded as a rendering pipeline. Usually when we create D3D device, we will also give it an <em>immediate device context</em>. A Device corresponds to only one immediate device context. As long as we have one of then we can obtain the others (ie. <code>ID3D11Device::GetImmediateContext</code> and <code>ID3D11DeviceContext::GetDevice</code>) through their repective methods. The rendering pipeline is mainly responsible for rendering and calculation work. It needs to bind many resources, views and shaders created by device associated with it to operate normally. In addition, it is also reponsible for direct read and write operations on resources. If your system supports D3D11.1, the corresponding interface classes are: <code>ID3D11Device1</code> and <code>ID3D11DeviceContext1</code> which inhering from the above two interface classes respectively. The diffrence is that a few new interfaces are provided additionally, and the implementation of interface methods may be diffrent.</p>
+<p>In order to create a device and device Context we will be using <code>D3D11CreateDevice()</code></p>
+<pre><code class="language-cpp">D3D11CreateDevice(
+    pAdapter, 
+    DriverType,
+    Software, // If the driver type is D3D_DRIVER_TYPE_SOFTWARE, the program module must be provided
+    Flags, 
+    pFeatureLevels,
+    SDKVersion,
+    ppDevice,
+    pFeauterLevel, // Output the current application&#39;s D3D Feature Level
+    ppImmediateDeviceContext
+);
+</code></pre>
+<p>Regarding <code>pAdapter</code> (display adapter), we can think of it as a layer of encapsulation for the display card device. Through this parameter, we can specify which display card device to use. Usually we set this parameter to   <code>nullptr</code> , so that the upper driver can help us decide which graphics card to use, or set which graphics card to use in the current program in the NVIDIA control panel . If you want to decide at the application level, use the <code>IDXGIFactory::EnumAdapters</code> method to enumerate the currently available display card devices.</p>
+<p>Driver Type specifies the driver type, but for most cases usually <code>D3D_DRIVER_TYPE_HARDWARE</code> is used to enjoy the benifits of hardware acceleration. Now we create a driver array and then poll it ourselves using a <code>for</code> loop</p>
+<pre><code class="language-cpp">D3D_DRIVER_TYPE driverTypes[] = 
+{
+    D3D_DRIVER_TYPE_HARDWARE,
+    D3D_DRIVER_TYPE_WARP,
+    D3D_DRIVER_TYPE_REFERENCE,
+};
+
+UINT numDriverTypes = ARRAYSIZE(driverTypes);
+</code></pre>
+<p>If hardware drivers are not supported then you need to check if warp driver is supported in a loop. Usually, hardware drivers are not supported in VMs.</p>
+<p>The we set the <code>CREATE_DEVICE_FLAGS</code> with the corresponding enumeration values. If D3D Device Debugging is required, we use <code>D3D11_CREATE_DEVICE_DEBUG</code> enumeration value. After specifing this value you can observe the information in the debug output window when a program exception occurs.</p>
+<p><code>pFeatureLevels</code> is an array of features that is polled inside the function to detect supported feature levels:</p>
+<pre><code class="language-cpp">D3D_FEATURE_LEVEL featureLevels[] = 
+{
+    D3D_FEATURE_LEVEL_11_1,
+    D3D_FEATURE_LEVEL_11_0
+};
+
+UINT numFeatureLevels = ARRAYSIZE(featureLevels);
+</code></pre>
+<p>If the system supports D3D11.1 API but the feature level is set to <code>nullptr</code>, <code>D3D11CreateDevice</code> will create a device with feauture level <code>D3D_FEATURE_LEVEL_11_0</code>. If you system does not support D3D11.1 API, it will return <code>E_INVALIDARGS</code> from <code>D3DCreateDevice</code>. In order to avoid this you should start polling with <code>D3D11_FEATURE_LEVEL_11_0</code> or lower.</p>
+<p>So, we can see that the feature level and the version of D3DDevice dont correspond to each other.</p>
+<ol>
+<li><p>The feature level support depends on the currently used display adapter. As long as the display adapter supports a certain feature level, it means that it can support the unified functions under that feature level.</p>
+</li>
+<li><p>The version of D3DDevice depends on the systems (sometimes one can install a specific system patch to support higher versions of DirectX.)</p>
+</li>
+</ol>
+<p>Since this function can create D3DDevice and D3DDeviceContext of D3D11.0 or higher sub-versions, but all output <code>ID3D11Device</code> and <code>ID3D11DeviceContext</code> uniformly, if you want to check which sub-version was selected you can use the following method.</p>
+<pre><code class="language-cpp">ComPtr&lt;ID3D11Device1&gt; device1;
+HRESULT hr = device.As(&amp;device1);
+</code></pre>
+<p>Similarly if you want to check if D3D11.2 API is supported you can do:</p>
+<pre><code class="language-cpp">ComPtr&lt;ID3D11Device2&gt; device2;
+HRESULT hr = device.As(&amp;device2);
+</code></pre>
+<p>Since the display card device of each computer is diffrent, we will use default one for now.</p>
+<pre><code class="language-cpp">HRESULT hr = 0; 
+UINT createDeviceFlags = 0;
+#if defined(DEBUG) || defined(_DEBUG)
+createDeviceFlags |= D3D11_CREATE_DEVICE_DEBUG
+#endif
+
+D3D_DRIVER_TYPE driverTypes[]
+{
+    D3D_DRIVER_TYPE_HARDWARE,
+    D3D_DRIVER_TYPE_WARP,
+    D3D_DRIVER_TYPE_REFRENCE,
+};
+
+UINT numDriverTypes = ARRAYSIZE(driverTypes);
+
+D3D_FEATURE_LEVEL featureLevels[]
+{
+    D3D_FEATURE_LEVEL_11_1,
+    D3D_FEATURE_LEVEL_11_0,
+};
+
+UINT numFeatureLevels = ARRAYSIZE(featureLevels);
+
+D3D_FEATURE_LEVEL featureLevel;
+D3D_DRIVER_TYPE driverType;
+
+for(UINT driverIndex = 0; driverIndex &lt; numDriverTypes; driverIndex++)
+{
+    hr = D3D11CreateDevice(nullptr, driverTypes, nullptr, createDeviceFlags, featureLevels, numFeatureLevels, D3D11_SDK_VERSION, device.GetAddressOf(), &amp;featureLevel, immediateContext.GetAddressOf());
+
+    if(hr == E_INVALIDARGS)
+    {
+        // d3d11.0 api does not recognzed the D3D_FEATURE_LEVEL_11_1 so we need to try feature levels 11.0 and below. 
+        hr = D3D11CreateDevice(nullptr, driverTypes, nullptr, createDeviceFlags, &amp;featureLevels[1], numFeatureLevels-1, D3D11_SDK_VERSION, device.GetAddressOf(), &amp;featureLevel, immediateContext.GetAddressOf());
+    }
+
+    if(SUCCEEDED(hr))
+    {
+        break;
+    }
+}
+
+if(FAILED(hr))
+{
+    MessageBoxA(0, &quot;Device Creation Failed&quot;, 0, 0);
+}
+
+if(featureLevel != D3D_FEATURE_LEVEL_11_0 &amp;&amp; featureLevel != D3D_FEATURE_LEVEL_11_1)
+{
+    MessageBoxA(0, &quot;D3D11 Not supported&quot;, 0, 0);
+}
+
+// detect the quality level supported by MSAA
+
+device-&gt;CheckMultiSampleQualityLevels(
+    DXGI_FORMAT_R8G8B8A8_UNORM, 4, &amp;msaaQuality 
+);
+
+assert(msaaQuality &gt; 0);
+</code></pre>
+
     </div>
     <div class="remaining"></div>
   </div>
