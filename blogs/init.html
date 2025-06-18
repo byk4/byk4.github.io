@@ -209,7 +209,10 @@
   <div class="container">
     <div class="remaining"></div>
     <div class="blog">
-      <h1>Direct3D Initialization</h1>
+      <h1>DirectX 11 Initialization</h1>
+<p><em>In this blog we are going to discuss Initialization of DirectX 11</em></p>
+<p>June 18, 2025</p>
+<p><img src="../assets/init.jpg" alt="com"></p>
 <p><code>ID3D11Device</code> usaslly represents a display adapter (ie. graphics Card). Its main function is to create varous resources. The most commonly used resources are: resource class (<code>ID3D11Resource</code>, including Textures and Buffers), view class and shaders. In addition, Device can also be used to detect the system supported functions.</p>
 <p><code>ID3D11DeviceContext</code> can be regraded as a rendering pipeline. Usually when we create D3D device, we will also give it an <em>immediate device context</em>. A Device corresponds to only one immediate device context. As long as we have one of then we can obtain the others (ie. <code>ID3D11Device::GetImmediateContext</code> and <code>ID3D11DeviceContext::GetDevice</code>) through their repective methods. The rendering pipeline is mainly responsible for rendering and calculation work. It needs to bind many resources, views and shaders created by device associated with it to operate normally. In addition, it is also reponsible for direct read and write operations on resources. If your system supports D3D11.1, the corresponding interface classes are: <code>ID3D11Device1</code> and <code>ID3D11DeviceContext1</code> which inhering from the above two interface classes respectively. The diffrence is that a few new interfaces are provided additionally, and the implementation of interface methods may be diffrent.</p>
 <p>In order to create a device and device Context we will be using <code>D3D11CreateDevice()</code></p>

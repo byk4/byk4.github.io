@@ -1,4 +1,10 @@
-# Direct3D Initialization
+# DirectX 11 Initialization
+
+*In this blog we are going to discuss Initialization of DirectX 11*
+
+June 18, 2025
+
+![com](../assets/init.jpg)
 
 `ID3D11Device` usaslly represents a display adapter (ie. graphics Card). Its main function is to create varous resources. The most commonly used resources are: resource class (`ID3D11Resource`, including Textures and Buffers), view class and shaders. In addition, Device can also be used to detect the system supported functions.
 
